@@ -2,7 +2,6 @@ import random
 import numpy as np
 import matplotlib.pyplot as plt
 from math import copysign, fabs, floor, isfinite, modf
-import string
 
 def coding(f):
     if not isfinite(f):
