@@ -1,6 +1,7 @@
 import random
 import numpy as np
 import matplotlib.pyplot as plt
+import pandas as pd
 from math import copysign, fabs, floor, isfinite, modf
 
 def coding(f):
@@ -92,3 +93,38 @@ def normalized(a):
     b[2] = b[2]/s
 
     return b
+
+def printTabel(a, b, c):
+    # Создание DataFrame из данных
+    a = '['+str(a[0])+'\n'+str(a[1])+'\n'+str(a[2])+']'
+    data = {
+        'Название': [
+            'Самые выгодные весы\n\n', 
+            'Максимальное значение приспособления', 
+            'Среднее значение приспособления'
+        ],
+        'Значение': [a, b, c]
+    }
+    df = pd.DataFrame(data)
+
+    # Рисование таблицы с корректировкой размера и масштаба
+    fig, ax = plt.subplots(figsize=(10, 6))
+    ax.axis('tight')
+    ax.axis('off')
+    table = ax.table(cellText=df.values, colLabels=df.columns, loc='center', cellLoc='center', edges='closed')
+
+    # Настройка стиля таблицы
+    table.auto_set_font_size(False)
+    table.set_fontsize(12)
+    table.scale(1, 4)
+
+    # # Для красоты :)
+    # soft_blue = "#add8e6"  # Мягкий синий
+    # soft_green = "#90ee90"  # Мягкий зеленый
+    # cells = table.properties()["celld"]
+    # for i in range(len(df)+1):
+    #     cells[i, 0].set_facecolor(soft_blue)   # Красим первый столбец в мягкий синий
+    #     cells[i, 0].set_text_props(color='black')
+    #     cells[i, 1].set_facecolor(soft_green)  # Красим второй столбец в мягкий зеленый
+    #     cells[i, 1].set_text_props(color='black')
+    plt.show()

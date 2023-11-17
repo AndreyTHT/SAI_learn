@@ -8,7 +8,9 @@ def Genetic_algoritm(o_d):
     p = []
     m = 3
     k = 0
+    l = 0
     m_array = []
+    sr_array = []
 
     # Предварительное заполнение популяции
     for i in range(4):
@@ -42,6 +44,8 @@ def Genetic_algoritm(o_d):
         print('\nМассив весов по отборочным')
         print(otbor_w)
 
+        sr = sum(otbor)/len(otbor)
+        sr_array.append(sr)
         m_array.append(m)
         if (m - max(otbor)) < 0.01:
             k+=1
@@ -54,6 +58,12 @@ def Genetic_algoritm(o_d):
                 plt.title('Рост приспособления')
                 plt.xlabel('Итерация')
                 plt.ylabel('Максимальное приспособление')
+                plt.show()
+                y = sr_array
+                plt.plot(x, y)
+                plt.title('Среднее приспособление')
+                plt.xlabel('Итерация')
+                plt.ylabel('Средние значения')
                 plt.show()
                 break
         else:
@@ -112,7 +122,7 @@ def Genetic_algoritm(o_d):
         for i in range(len(otbor_norm)):
             p.append(otbor_norm[i])
 
-    print("Наивыгоднейшие весы "+str(otbor_all[max(otbor)]))
+    printTabel(otbor_all[max(otbor)], max(otbor), sum(sr_array)/len(sr_array))
     return otbor_all[max(otbor)]
 
 Genetic_algoritm(o_d)
