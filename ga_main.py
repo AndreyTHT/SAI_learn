@@ -122,7 +122,7 @@ def Genetic_algoritm(o_d):
         for i in range(len(otbor_norm)):
             p.append(otbor_norm[i])
 
-    printTabel(otbor_all[max(otbor)], max(otbor), sum(sr_array)/len(sr_array))
+    printTabel(otbor_all[max(otbor)], max(otbor), (sum(sr_array)/len(sr_array)), o_d)
     return otbor_all[max(otbor)]
 
 Genetic_algoritm(o_d)
