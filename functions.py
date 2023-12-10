@@ -129,3 +129,7 @@ def printTabel(a, b, c, o):
     #     cells[i, 1].set_facecolor(soft_green)  # Красим второй столбец в мягкий зеленый
     #     cells[i, 1].set_text_props(color='black')
     plt.show()
+def weighted_random_choice(numbers):
+    total = sum(numbers)
+    probabilities = [n / total for n in numbers]
+    return random.choices(numbers, weights=probabilities, k=1)[0]

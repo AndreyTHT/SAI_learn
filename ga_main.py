@@ -22,13 +22,21 @@ def Genetic_algoritm(o_d):
             p.append(r_o())
 
 
-        # Отбор наиболее "приспособленных" "особей"
+        # (Теперь нет)Отбор наиболее "приспособленных" "особей"
+        # Теперь рулетка
+        # Пример использования:
+
         otbor_all = diagramm(p, o_d)
         otbor = []
+        otbor0 = []
         for key, value in otbor_all.items():
-            otbor.append(key)
-        otbor = sorted(otbor)
-        otbor = otbor[(len(otbor)//2):]
+            otbor0.append(key)
+
+        for i in range((len(otbor0)//2)):
+            chosen_number = weighted_random_choice(otbor0)
+            otbor0.remove(chosen_number)
+            otbor.append(chosen_number)
+            
         
         print('\nМассив отборочных \"приспособлений\"')
         print(otbor)
