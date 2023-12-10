@@ -55,7 +55,7 @@ def Genetic_algoritm(o_d):
         sr = sum(otbor)/len(otbor)
         sr_array.append(sr)
         m_array.append(m)
-        if (m - max(otbor)) < 0.01:
+        if (m - max(otbor)) < 0.6:
             k+=1
             if k == 50:
                 x = []
